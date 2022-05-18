@@ -1,0 +1,30 @@
+.actionContainer {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+
+}
+
+.actionButtonAll {
+    border-left: 1px solid lightgrey;
+    padding: 0 8px;
+}
+
+.darkMode {
+    background-color: #282c34;
+    color: #fff;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.paginationContainer {
+    width: 100%;
+
+}
+
+.paginationPanel {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}

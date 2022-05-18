@@ -1,0 +1,58 @@
+
+
+.card {
+    margin: 10px;
+    background-color: #282c34;
+    border: 1px solid #fff;
+}
+
+.action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+}
+
+
+.iconAction {
+    font-size: 20px;
+}
+
+.actionContainer {
+    display: flex;
+    align-items: center;
+}
+
+.likedIkon {
+    margin: 0 20px 0 0;
+    color: #FC6C85
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+.itemTop {
+    border-bottom: 1px solid lightgray;
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
+}
+
+.actionList {
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid lightgray;
+}
+
+.actionListHiden {
+    display: none;
+}
+
+.actionListItem {
+    padding: 5px 10px;
+}

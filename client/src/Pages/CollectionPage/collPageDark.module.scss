@@ -1,0 +1,86 @@
+
+
+.title:first-child {
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.description {
+    width: 70%;
+    // text-align: center;
+    padding: 10px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonCreate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    margin: 10px auto;
+}
+
+.hidenForm {
+    display: none;
+}
+
+.showForm {
+    display: block;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+}
+
+.itemContainer {
+    background-color: #282c34;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.collectionTop {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50%;
+    width: 100%;
+    object-fit: cover;
+    height: 350px;
+}
+
+.blackBackground {
+    background-color: rgba(0, 0, 0, 0.412);
+    height: 100%;
+    padding: 20px 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.buttonCSCexport {
+    display: flex;
+    align-items: center;
+}
+
+.exportIcon {
+    font-size: 20px;
+}
+
+@media (max-width: 350px) {
+    .title:first-child {
+        width: 60%;
+        text-align: center;
+        margin: 0 auto;
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+    }
+    
+}

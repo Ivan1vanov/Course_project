@@ -1,0 +1,48 @@
+.passwordWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionFooter {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.container {
+    background-color: #282c34;
+    color: #fff;
+}
+
+.body {
+    background-color: #282c34;
+    color: #fff;
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    height: 100vh;
+}
+
+.facebookButton {
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #4267B2;
+    border: none;
+}
+
+.iconFacebook {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    margin: 0 10px 0 0;
+}
+
+.facebookButton:hover {
+    background-color: #3b5d9f;
+}

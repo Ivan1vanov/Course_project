@@ -1,0 +1,52 @@
+.title {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.description {
+    width: 30%;
+    text-align: center;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.actionsPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionIconBlock {
+    margin: 0 40px;
+}
+
+.iconAction {
+    font-size: 25px;
+}
+
+.extraField {
+    margin: 15px 0;
+}
+
+.fieldsContainer {
+    width: 50%;
+}
+
+.likedIkon {
+    color: #FC6C85
+}
+
+.darkMode {
+    background-color: #282c34;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.tagItem {
+    margin: 0 5px;
+}

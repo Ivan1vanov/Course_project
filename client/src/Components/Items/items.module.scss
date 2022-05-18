@@ -1,0 +1,22 @@
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+   
+  
+}
+
+.mainContainer {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sortActions {
+    display: flex;
+}
+
+.selectForm {
+    margin: 0 10px;
+    border-radius: 10px;
+}

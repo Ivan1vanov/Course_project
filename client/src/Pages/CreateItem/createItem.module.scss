@@ -1,0 +1,50 @@
+
+
+.createButton {
+    width: 90px;
+    margin: 10px auto;
+}
+
+.tagsInput {
+    display: flex;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.tagItem {
+    background-color: gray;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #fff;
+}
+
+.decorativeTag {
+    color: gray;
+    font-size: 25px;
+    margin: 0 0 0 10px;
+}
+
+.suggestionBlock {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 99;
+}
+
+.suggestion {
+    cursor: pointer;
+    border: 1px solid lightgray;
+
+    background-color: #fff;
+    width: 100%;
+    color: #000;
+}
+
+.tagsInputContainer {
+    position: relative;
+}
+
+.suggestion:hover {
+    background-color: lightgray;
+}
