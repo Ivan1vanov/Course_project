@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { IItem } from '../../../store/types/itemsType'
 import {AiOutlineHeart, AiOutlineMessage, AiFillDelete} from "react-icons/ai";
 import { Button, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { likeItemAction, deleteItemAction } from '../../../store/actions/itemActions';
 import {BsThreeDotsVertical, BsFillPencilFill} from 'react-icons/bs'
@@ -22,6 +22,7 @@ interface IItemProps {
 const Item: React.FC<IItemProps> = ({item, creatorId, setCurrentItemId}) => {
   const navigate = useNavigate()
   const dispatch: any = useDispatch()
+  const myURL = useParams()
 
   const [collectionName, setCollectionName] = useState('')
 
@@ -40,11 +41,12 @@ const Item: React.FC<IItemProps> = ({item, creatorId, setCurrentItemId}) => {
 
   useEffect(() => {
     const getName = async () => {
+      console.log('nem')
         const {data} = await getNameOfCollectionAPI(item?.collectionId)
         setCollectionName(data.name)
     }
     getName()
-  }, [])
+  }, [item])
 
   return (
     <Card className={styles.card} style={{width: "18rem"}}>
@@ -54,8 +56,9 @@ const Item: React.FC<IItemProps> = ({item, creatorId, setCurrentItemId}) => {
     <div>
     <h5 className="card-title">{item.name} </h5>
     </div>
-    {user._id === creatorId || user.isAdmin === true ? (
-      <div>
+    <div>
+    {creatorId && user._id === creatorId || creatorId && user.isAdmin === true ? (
+      <div className={styles.blockLost}>
       <Button onClick={() => setIsActionList(!isActionList)} variant={isWhite ? 'light' : 'dark'}>
       <BsThreeDotsVertical/>
       </Button>
@@ -79,9 +82,9 @@ const Item: React.FC<IItemProps> = ({item, creatorId, setCurrentItemId}) => {
         </div>
       </div>
     </div>
-    ): null}
+    ) : <div></div>}
     </div>
-
+    </div>
     <div>
     <strong>Collection: </strong>
     <Link to={`/collection/${item?.collectionId}`}>

@@ -14,7 +14,7 @@ interface ICommentProps {
     comments: IComment[]
 }
 
-const socket = io.connect('http://localhost:5000')
+const socket = io.connect('https://course-ih.herokuapp.com')
 
 const Comments: React.FC<ICommentProps> = ({itemId, comments}) => {
     const dispatch: any = useDispatch()

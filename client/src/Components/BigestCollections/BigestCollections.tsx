@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBigestCollectionsAction } from '../../store/actions/collectionActions';
 import Collection from '../Collections/collection/Collection';
 import styles from './bigestCollections.module.scss'
+import { Spinner } from 'react-bootstrap';
 
 const BigestCollections = () => {
     const dispatch: any = useDispatch()
@@ -30,15 +31,12 @@ const BigestCollections = () => {
             // <div>{index}</div>
         ))}
 
-        {loading ? (
-            <div>
-                loading
-            </div>
-        ) : (
-            <div>
-                </div>
+        {loading && (
+             <Spinner animation="border" variant="primary" />
         )}
-
+<div>
+   
+</div>
     </div>
     </div>
     </div>

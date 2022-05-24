@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Item from '../Items/Item/Item';
 import styles from './lastItems.module.scss'
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import { getLastItemsLoadMoreAction, getLastItemsAction } from '../../store/actions/itemActions';
 
 const LastItems = () => {
@@ -30,17 +30,12 @@ const LastItems = () => {
     <h2>Last Items: </h2>     
     <div className={styles.container}>
         {items?.map((item: any, index: number) => (
-                <Item key={index} item={item} />
+                <Item key={index} item={item}/>
         )
         )}
 
-        {loading ? (
-            <div>
-                loading
-            </div>
-        ) : (
-            <div>
-                </div>
+        {loading && (
+             <Spinner animation="border" variant="primary" />
         )}
 
     </div>

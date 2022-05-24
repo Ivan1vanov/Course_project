@@ -189,7 +189,7 @@ const AuthPage = () => {
         autoLoad={false}
         callback={responseFacebook} 
         render={renderProps => (
-            <Button className={styles.facebookButton} onClick={renderProps.onClick}>
+            <Button disabled={true} className={styles.facebookButton} onClick={renderProps.onClick}>
                 <div className={styles.iconFacebook}>
                 <AiOutlineFacebook/>
                 </div>

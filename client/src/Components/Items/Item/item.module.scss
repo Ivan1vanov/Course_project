@@ -28,7 +28,7 @@
 .cardTitle {
     display: flex;
     justify-content: space-between;
-    position: relative;
+    // position: relative;
     border-bottom: 1px solid lightgray;
 }
 
@@ -38,6 +38,10 @@
     right: 0;
     background-color: #fff;
     border: 1px solid lightgray;
+}
+
+.blockLost {
+    position: relative;
 }
 
 .actionListHiden {

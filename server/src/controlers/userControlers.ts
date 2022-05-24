@@ -227,43 +227,54 @@ class UserControlers {
 
     async loginWithFacebook(req: Request, res: Response) {
         const {accessToken, userID} = req.body
-        console.log(req.body)
         try {
-            const urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
+            if(!accessToken || !userID) {
+                res.status(404).send({
+                    message: 'Something went wrong...'
+                })
+            } else {
+                const urlGraphFacebook = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`
 
-            fetch(urlGraphFacebook, {
-                method: 'GET'
-            })
-            .then(res => res.json())
-            .then(async (response) => {
-                console.log(response)
-                const {name, email} = response
-
-                const user: any = await User.findOne({email: email})
-                 
-                    if(user) {
-                        const token = jwtTokenGenerator(user._id)
-                        res.status(202).send({
-                            user,
-                            token
-                        })
+                fetch(urlGraphFacebook, {
+                    method: 'GET'
+                })
+                .then(res => res.json())
+                .then(async (response) => {
+                    if(response) {
+                        const {name, email} = response
+    
+                    const user: any = await User.findOne({email: email})
+                     
+                        if(user) {
+                            const token = jwtTokenGenerator(user._id)
+                            res.status(202).send({
+                                user,
+                                token
+                            })
+                        } else {
+                            const password = email + config.get<string>('jwtConfig')
+                            const newUser = new User({
+                                name: name,
+                                email: email,
+                                password: password
+                            })
+                            await newUser.save()
+    
+                            const token = jwtTokenGenerator(newUser._id)
+                            res.status(202).send({
+                                user: newUser,
+                                token
+                            })
+                        }
+                   
                     } else {
-                        const password = email + config.get<string>('jwtConfig')
-                        const newUser = new User({
-                            name: name,
-                            email: email,
-                            password: password
-                        })
-                        await newUser.save()
-
-                        const token = jwtTokenGenerator(newUser._id)
-                        res.status(202).send({
-                            user: newUser,
-                            token
+                        res.status(404).send({
+                            message: 'Something wrong'
                         })
                     }
                 })
-          
+            }
+           
         } catch (error) {
             console.log(error)
         }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { itemLG } from '../../SettingTypes/Language/item';
 import Item from './Item/Item';
@@ -45,7 +46,7 @@ const Items: React.FC<ItemProps> = ({creatorId, setCurrentItemId, setSortBy, set
 
       {loading && (
         <div>
-          LOADONG...
+           <Spinner animation="border" variant="primary" />
         </div>
       )}
         {items?.map((item: any, index: number) => (

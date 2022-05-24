@@ -28,12 +28,9 @@ const Navbar = () => {
   const [showMenuList, setShowMenuList] = useState<boolean>(false)
   const [showLanguageMenu, setShowLanguageMenu] = useState<boolean>(false)
   const [showColorMenu, setShowColorMenu] = useState<boolean>(false)
-  // const [lg, setLg] = useState('en')
 
   const {lg, color} = useSelector((state: any) => state.settings)
-// console.log(lg)
-// console.log('color: ', color)
-// console.log(color)
+
   const showLanguageMenuHandler = () => {
       setShowLanguageMenu(!showLanguageMenu)
       setShowColorMenu(false)
@@ -49,8 +46,6 @@ const Navbar = () => {
   const setLanguageHandler = (language: string) => {
     localStorage.setItem('currentLanguage', JSON.stringify(language))
     dispatch({type: SettingsENUM.CHANGE_LANGUAGE, payload: language})
-    // setLg(JSON.parse(localStorage.getItem('currentLanguage') || '{}'))
-    // console.log('lg: ', lg)
   }
 
   const setColotHandler = (color: string) => {
@@ -78,7 +73,7 @@ const Navbar = () => {
   
   return (
     <nav className={isWhite ? "navbar navbar-expand-lg navbar-dark bg-primary" : "navbar navbar-expand-lg navbar-dark bg-dark"}>
-    <a className="navbar-brand" href="#">Cource Project</a>
+    <Link className="navbar-brand" to="/">Cource Project</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -86,7 +81,7 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
-          <Link className="nav-link" to='#'>Source code</Link>
+          <a className="nav-link" target='_blank' href='https://github.com/Ivan1vanov/Course_project'>Source code</a>
         </li>
         <li className="nav-item active">
           <Link className="nav-link" to='/'>{text.HOME}</Link>

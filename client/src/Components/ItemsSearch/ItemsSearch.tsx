@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { searchItemsAction } from '../../store/actions/itemActions';
@@ -20,7 +20,7 @@ const ItemsSearch: React.FC<IItemsSearch> = ({setPage, page}) => {
     <div className={styles.container}>
     {loading && (
         <div>
-          LOADONG...
+          <Spinner animation="border" variant="primary" />
         </div>
       )}
         {items?.map((item: any, index: number) => (

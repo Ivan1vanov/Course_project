@@ -50,3 +50,14 @@
 .tagItem {
     margin: 0 5px;
 }
+
+.multilineText {
+    display: flex;
+}
+
+.goBack {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    font-size: 40px;
+}

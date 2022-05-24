@@ -78,33 +78,52 @@ const CollectionPage = () => {
         
     //     })}
     // ])
-
+    
+    const [scvReport, setSvcReport] = useState<any>({
+        filename: `${collection?.name}.csv`,
+        headers: [],
+        data: []
+    })
  
     
-    const cvsCollectionData =  collectionSCVitems?.map((item: any) => {
-        return {name: '', format: '', items: '', creator: '',
-            allItemsID: item._id
-        }
-    })
-    const cvsMainData = [
-        {name: collection?.name, format: collection?.format, items: `${collection?.items} items`, creator: collection?.creator,
-            allItemsID: collectionSCVitems[0]?._id},
-        ...cvsCollectionData.slice(1)
-    ]
-
-    const cvsCollectionHeaders = [
-        { label: "Name", key: "name" },
-        { label: "Format", key: "format" },
-        { label: "Items", key: "items" },
-        { label: "Author ID", key: "creator" },
-        { label: "Items IDs", key: "allItemsID" },   
-    ]
-
-    const scvReport = {
-        filename: `${collection?.name}.csv`,
-        headers: cvsCollectionHeaders,
-        data: cvsMainData
+  useEffect(() => {
+    if(collectionSCVitems) {
+        console.log('svc item')
+        const cvsCollectionData =  collectionSCVitems?.map((item: any) => {
+            return {name: '', format: '', items: '', creator: '',
+                allItemsID: item._id
+            }
+        })
+        const cvsMainData = [
+            {name: collection?.name, format: collection?.format, items: `${collection?.items} items`, creator: collection?.creator,
+                allItemsID:  collectionSCVitems && collectionSCVitems[0]?._id},
+            ...cvsCollectionData?.slice(1)
+        ]
+    
+        const cvsCollectionHeaders = [
+            { label: "Name", key: "name" },
+            { label: "Format", key: "format" },
+            { label: "Items", key: "items" },
+            { label: "Author ID", key: "creator" },
+            { label: "Items IDs", key: "allItemsID" },   
+        ]
+    
+        setSvcReport({
+            filename: `${collection?.name}.csv`,
+            headers: cvsCollectionHeaders,
+            data: cvsMainData
+        })
     }
+  }, [collectionSCVitems])
+
+  
+
+
+    // const [scvReport, setSvcReport] = useState({
+    //     filename: `${collection?.name}.csv`,
+    //     headers: cvsCollectionHeaders,
+    //     data: cvsMainData
+    // })
 
   return (
       <div>
@@ -137,6 +156,7 @@ const CollectionPage = () => {
 </div>
     <div className={styles.itemContainer}>
         <div className={styles.description}>
+            <div><strong>Description:</strong> </div>
             <MarkDown>{collection?.description}</MarkDown>
 
             {collection?.creator === user?._id || user.isAdmin === true ? (

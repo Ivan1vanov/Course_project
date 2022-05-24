@@ -8,6 +8,7 @@ import {AiOutlineHeart, AiOutlineMessage} from "react-icons/ai";
 import { Button, Container } from 'react-bootstrap';
 import { IExtraField } from '../../store/types/itemsType';
 import Comments from '../../Components/Comments/Comments';
+import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 
 
@@ -36,6 +37,13 @@ const ItemPage = () => {
 
   return (
     <div className={isWhite ? styles.whiteMode : styles.darkMode}>
+        <div className={styles.goBack}>
+ 
+            <Button onClick={() => navigate(-1)} variant='primary'>
+            <AiOutlineArrowLeft/> 
+            </Button>
+
+        </div>
         {loading && (
             <div>
                 LOADING...
@@ -54,10 +62,16 @@ const ItemPage = () => {
     <Container className={styles.fieldsContainer}>
         {item?.extraItemFields?.map((field: IExtraField, index: number) => (
             <div key={index} className={styles.extraField}>
+                <div className={styles.multilineText}>
+                <div className='mr-2'>
                 <strong>
-                {field.extraItemName}
+                {field.extraItemName}:
                 </strong>
-                : {field.extraItemData}
+                </div>
+                <div>
+                {field.extraItemData.split("\n").map((text: any, index: number) => <div key={index}>{text}</div>)}
+                </div>
+                </div>
             </div>
         ))}
     </Container>

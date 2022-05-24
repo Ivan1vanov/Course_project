@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Button, Container} from 'react-bootstrap'
+import { Button, Container, Spinner } from 'react-bootstrap';
 import styles from './create.module.scss'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
@@ -253,7 +253,7 @@ const CreateCollectionPage = () => {
         </form>
         {loading && (
             <div>
-                LOADING
+                 <Spinner animation="border" variant="primary" />
             </div>
         )}
         

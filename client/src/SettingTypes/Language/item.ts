@@ -10,7 +10,8 @@ interface ILanguage {
     date_from_early: string,
     date_from_the_latest: string,
     likes_from_the_most_popular: string,
-    likes_from_the_smallest: string
+    likes_from_the_smallest: string,
+    BACK: string
 
 }
 
@@ -30,7 +31,8 @@ export const itemLG: IItemLG = {
         date_from_early: 'Date from early',
         date_from_the_latest: 'Date from the latest',
         likes_from_the_most_popular: 'Likes from the best',
-        likes_from_the_smallest: 'Likes from the smallest'
+        likes_from_the_smallest: 'Likes from the smallest',
+        BACK: 'BACK'
 
     },
     pl: {
@@ -43,7 +45,8 @@ export const itemLG: IItemLG = {
         date_from_early: 'Data od najbardziej wczesnego',
         date_from_the_latest: 'Data od najpóźniejszej',
         likes_from_the_most_popular: 'Like od najlepszych',
-        likes_from_the_smallest: 'Like od najmniejszych'   
+        likes_from_the_smallest: 'Like od najmniejszych',
+        BACK: 'Powrót'   
     },
 
 }

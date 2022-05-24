@@ -3,7 +3,7 @@ import Collection from './collection/Collection'
 import styles from './collections.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCollectionsAction, loadMoreAction } from '../../store/actions/collectionActions';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner } from 'react-bootstrap';
 
 const Collections = () => {
 
@@ -35,9 +35,7 @@ const Collections = () => {
         )}
 
         {loading ? (
-            <div>
-                loading
-            </div>
+             <Spinner animation="border" variant="primary" />
         ) : (
             <div>
                 </div>
